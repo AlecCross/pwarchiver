@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import JSZip from 'jszip';
+import styles from '../styles/ArchiveTools.module.css';
 
 interface UnzippedFile {
   name: string;
@@ -45,22 +46,26 @@ const ArchiveUnzipper = () => {
   };
 
   return (
-    <div>
+    <div className={styles.section}>
       <h2>Розархівувати ZIP-архів</h2>
-      <input type="file" accept=".zip" onChange={handleZipFileChange} />
-      <button onClick={handleUnzip} disabled={!selectedZipFile}>
-        Розархівувати
-      </button>
+      <div className={styles.inputGroup}>
+        <input type="file" accept=".zip" onChange={handleZipFileChange} style={{ display: 'none' }} id="unzipFile" />
+        <label htmlFor="unzipFile" className={styles.inputButton}>Вибрати ZIP-архів</label>
+        <span className={styles.fileLabel}>{selectedZipFile?.name || 'Файл не обрано'}</span>
+        <button onClick={handleUnzip} disabled={!selectedZipFile} className={styles.inputButton}>
+          Розархівувати
+        </button>
+      </div>
 
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
 
       {unzippedFiles.length > 0 && (
         <div>
           <h3>Розпаковані файли:</h3>
-          <ul>
+          <ul className={styles.unzippedFilesList}>
             {unzippedFiles.map((file) => (
               <li key={file.name}>
-                <a href={file.url} download={file.name}>
+                <a href={file.url} download={file.name} className={styles.downloadLink}>
                   {file.name}
                 </a>
               </li>

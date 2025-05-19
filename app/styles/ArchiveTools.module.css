@@ -1,0 +1,90 @@
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto; 
+  }
+  
+  .section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    gap: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .inputGroup {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .inputButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .inputButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .fileLabel {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #eee;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .downloadLink {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: #155724;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .downloadLink:hover {
+    background-color: #c3e6cb;
+  }
+  
+  .unzippedFilesList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .unzippedFilesList li {
+    margin-bottom: 5px;
+  }
+  
+  .errorMessage {
+    color: red;
+    margin-top: 10px;
+  }
+  

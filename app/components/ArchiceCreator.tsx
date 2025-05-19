@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from 'react';
 import JSZip from 'jszip';
+import styles from '../styles/ArchiveTools.module.css';
 
 const ArchiveCreator = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -34,15 +35,19 @@ const ArchiveCreator = () => {
   };
 
   return (
-    <div>
+    <div className={styles.section}>
       <h2>Створити ZIP-архів</h2>
-      <input type="file" multiple ref={fileInputRef} onChange={handleFileChange} />
-      <button onClick={handleArchive} disabled={!selectedFiles || selectedFiles.length === 0}>
-        Заархівувати
-      </button>
+      <div className={styles.inputGroup}>
+        <input type="file" multiple ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} id="archiveFiles" />
+        <label htmlFor="archiveFiles" className={styles.inputButton}>Вибрати файли</label>
+        <span className={styles.fileLabel}>{selectedFiles ? `${selectedFiles.length} файлів обрано` : 'Файли не обрано'}</span>
+        <button onClick={handleArchive} disabled={!selectedFiles || selectedFiles.length === 0} className={styles.inputButton}>
+          Заархівувати
+        </button>
+      </div>
       {downloadUrl && (
         <p>
-          <a href={downloadUrl} download="archive.zip">
+          <a href={downloadUrl} download="archive.zip" className={styles.downloadLink}>
             Завантажити архів
           </a>
         </p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ArchiveCreator from "./components/ArchiceCreator";
 import ArchiveUnzipper from "./components/ArchiveUnzipper";
+import styles from './styles/ArchiveTools.module.css';
 
 export const metadata: Metadata = {
   title: "PWArchiver",
@@ -8,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
-      <h1>Next.js + Serwist</h1>
-      <ArchiveCreator/>
-      <ArchiveUnzipper/>
-    </>
+    <main className={styles.container}>
+      <h1>PWArchiver</h1>
+      <ArchiveCreator />
+      <ArchiveUnzipper />
+    </main>
   );
 }
