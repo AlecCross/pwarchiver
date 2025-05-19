@@ -38,6 +38,22 @@
       "type": "image/png"
     }
   ],
+  "screenshots":[
+      {
+        "src": "/screenshot-phone-1.webp",
+        "sizes": "1440x2934",
+        "type": "image/webp",
+        "form_factor": "narrow",
+        "label": "The About page shown on mobile."
+      },
+      {
+        "src": "/screenshot-desktop-1.webp",
+        "sizes": "3041x1262",
+        "type": "image/webp",
+        "form_factor": "wide",
+        "label": "The About page shown on desktop."
+      }
+    ],
   "theme_color": "#00ff00",
   "background_color": "#ffff00",
   "start_url": "/",
