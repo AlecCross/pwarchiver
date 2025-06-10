@@ -45,6 +45,14 @@
   .inputButton:hover {
     background-color: #0056b3;
   }
+
+  /* Додайте до існуючих стилів */
+  .inputButton:disabled {
+    background-color: #cccccc; /* Світло-сірий */
+    color: #666666; /* Темно-сірий текст */
+    cursor: not-allowed; /* Заборонений курсор */
+    opacity: 0.7; /* Зробити трохи прозорішим */
+  }
   
   .fileLabel {
     flex-grow: 1;
@@ -86,5 +94,88 @@
   .errorMessage {
     color: red;
     margin-top: 10px;
+  }
+
+
+  .downloadControls {
+    display: flex;
+    justify-content: space-between; /* Розміщує елементи по краях */
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Роздільник */
+    /* Нові доповнення: */
+    flex-wrap: wrap; /* Дозволити елементам переноситися на новий рядок на малих екранах */
+    gap: 10px; /* Додати відступ між елементами, якщо вони переносяться */
+  }
+
+  /* Ваш існуючий .checkboxLabel */
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Збільшимо трохи відступ між чекбоксом і текстом/посиланням */
+  cursor: pointer;
+  padding: 5px 0; /* Додайте невеликий вертикальний padding, щоб було легше клікати */
+}
+
+.checkboxLabel input[type="checkbox"] {
+  min-width: 18px;
+  min-height: 18px;
+  /* Додаткові стилі для чекбоксів (можливо, для кастомізації, але залиште це на потім, якщо працює нативно) */
+}
+
+/* Ваш існуючий .unzippedFileItem */
+.unzippedFileItem {
+  display: flex; /* Важливо, щоб чекбокс і посилання були на одному рівні */
+  align-items: center;
+  margin-bottom: 5px;
+  /* Можливо, light hover state для всього рядка? */
+  /* transition: background-color 0.2s ease; */
+  /* border-radius: 4px; */
+}
+
+/* .unzippedFileItem:hover { */
+/* background-color: #eef; */
+/* } */
+
+/* Ваш існуючий .downloadLink (переконайтеся, що він мінімалістичний) */
+.unzippedFileItem .downloadLink {
+  margin-left: 0; /* Якщо вже є gap у checkboxLabel, то цей margin не потрібен */
+  padding: 0;
+  border: none;
+  background: none;
+  color: #007bff;
+  text-decoration: underline;
+  /* transition: color 0.3s ease; */
+}
+
+.unzippedFileItem .downloadLink:hover {
+  background: none;
+  color: #0056b3;
+}
+
+/* Стиль для назви файлу, якщо вона занадто довга */
+.unzippedFileItem .downloadLink {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 30px); /* Приблизно ширина для чекбоксу + відступ */
+}
+
+.section h3 {
+  margin-top: 20px; /* Більший відступ зверху */
+  margin-bottom: 10px; /* Стандартний відступ знизу */
+  color: #444; /* Трохи темніший, ніж фон, але світліший, ніж основні заголовки */
+}
+  
+  @media (max-width: 600px) { /* Приклад брейкпойнту, можна підлаштувати */
+    .downloadControls {
+      flex-direction: column; /* На малих екранах елементи стовпчиком */
+      align-items: flex-start; /* Вирівняти по лівому краю */
+    }
+    .downloadControls button {
+      width: 100%; /* Кнопка займає всю ширину */
+    }
   }
   
